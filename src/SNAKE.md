@@ -67,7 +67,7 @@ Szükséges a `Java sdk 8` vagy újabb telepítése a fordításhoz és a kiért
 * `game.snake.players.RandomPlayer`: kígyót vezérlő osztály
 
 ### Saját ágens készítése:
- * Hozzuk létre egy ``Agent.java`` állományt, a következő tartalommal:
+ * Hozzuk létre egy ``SamplePlayer.java`` állományt, a következő tartalommal:
 ``` java
 import java.util.Random;
 
@@ -76,9 +76,9 @@ import game.snake.SnakeGame;
 import game.snake.SnakePlayer;
 import game.snake.utils.SnakeGameState;
 
-public class Agent extends SnakePlayer {
+public class SamplePlayer extends SnakePlayer {
 
-  public Agent(SnakeGameState gameState, int color, Random random) {
+  public SamplePlayer(SnakeGameState gameState, int color, Random random) {
     super(gameState, color, random);
   }
 
@@ -90,13 +90,13 @@ public class Agent extends SnakePlayer {
 }
 ```
  * Fordítsuk le a file-t:
-``javac -cp game_engine.jar Agent.java``
+``javac -cp game_engine.jar SamplePlayer.java``
  * Értékeljük ki:
-``java -jar game_engine.jar 0 game.snake.SnakeGame 1234567890 15 25 10000 Agent``
+``java -jar game_engine.jar 0 game.snake.SnakeGame 1234567890 15 25 10000 SamplePlayer``
  * Kimenet az output csatornán:
 ```sh
 logfile: gameplay_xxxxxxxxx.data
-0 Agent -80.0 10000000000
+0 SamplePlayer -80.0 10000000000
 ```
  * Egy játék visszanézése a logfile alapján (25fps):
 ``java -jar game_engine.jar 25 gameplay_xxxxxxxxx.data``
@@ -104,7 +104,7 @@ logfile: gameplay_xxxxxxxxx.data
 A játék kimenete:
 
 * `0`: játékos azonosító
-* `Agent`: játékos implementáló osztály neve
+* `SamplePlayer`: játékos implementáló osztály neve
 * `-80.0`: elért pontszám
 * `10000000000`: megmaradt gondolkodási idő nanomásodpercben
 
@@ -123,7 +123,7 @@ függetlenük a keretrendszerét is.
 * Beküldési határidő: 2024. december 2. 23:59
 
 A fenti korlátoknak megfelelő futtatási paraméterezés lehet a következő:
-``java -Xmx2G -jar game_engine.jar 0 game.snake.SnakeGame 1234567890 15 25 10000 Agent``
+``java -Xmx2G -jar game_engine.jar 0 game.snake.SnakeGame 1234567890 15 25 10000 SamplePlayer``
 
 A kiértékelés során 10 véletlen inicializáció lesz használva (random seed).
 
